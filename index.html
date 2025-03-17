@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+<head>
+    <meta charset="UTF-8">
+    <title>動畫與嵌入網頁</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+        #canvas-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 10; /* 確保 canvas 在 iframe 前面 */
+            pointer-events: none; /* 讓滑鼠事件穿透到後面的 iframe */
+        }
+        iframe {
+            position: absolute;
+            top: 100px;
+            left: 100px;
+            width: calc(100% - 200px);
+            height: calc(100% - 200px);
+            border: none;
+            z-index: 1; /* 確保 iframe 在 canvas 後面 */
+        }
+    </style>
+    <script src="libraries/p5.min.js"></script>
+    <script src="libraries/p5.sound.min.js"></script>
+</head>
+<body>
+    <div id="canvas-container">
+        <script src="sketch.js"></script>
+    </div>
+    <iframe src="https://www.et.tku.edu.tw"></iframe>
+</body>
+</html>
